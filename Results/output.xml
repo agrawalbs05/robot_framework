@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.9.10 on darwin)" generated="20230331 16:52:05.450" rpa="false" schemaversion="3">
+<suite id="s1" name="APItestCases" source="/Users/bhushanagrawal/PycharmProjects/pythonProject1/Tests/APItestCases.robot">
+<test id="s1-t1" name="Quick Get Request Test" line="7">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://moc-noc-api.deta.dev/moc-noc/v1/network/corp</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230331 16:52:07.399" level="INFO">GET Request : url=https://moc-noc-api.deta.dev/moc-noc/v1/network/corp 
+ path_url=/moc-noc/v1/network/corp 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230331 16:52:07.399" level="INFO">GET Response : url=https://moc-noc-api.deta.dev/moc-noc/v1/network/corp 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 31 Mar 2023 23:52:08 GMT', 'Content-Type': 'application/json', 'Content-Length': '128', 'Connection': 'keep-alive', 'Server': 'Deta'} 
+ body={"dhcp":{"gateway":"10.100.0.1","ip-range":"10.100.0.10-10.102.255.250","netmask":"255.255.255.0"},"ip-address":"10.100.0.1/24"} 
+ </msg>
+<msg timestamp="20230331 16:52:07.400" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230331 16:52:05.640" endtime="20230331 16:52:07.400"/>
+</kw>
+<status status="PASS" starttime="20230331 16:52:05.639" endtime="20230331 16:52:07.400"/>
+</test>
+<test id="s1-t2" name="Positive Test case for corp" line="11">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://moc-noc-api.deta.dev/moc-noc/v1/network/corp</arg>
+<arg>params=query=ciao</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230331 16:52:07.770" level="INFO">GET Request : url=https://moc-noc-api.deta.dev/moc-noc/v1/network/corp?query=ciao 
+ path_url=/moc-noc/v1/network/corp?query=ciao 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230331 16:52:07.770" level="INFO">GET Response : url=https://moc-noc-api.deta.dev/moc-noc/v1/network/corp?query=ciao 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 31 Mar 2023 23:52:09 GMT', 'Content-Type': 'application/json', 'Content-Length': '128', 'Connection': 'keep-alive', 'Server': 'Deta'} 
+ body={"dhcp":{"gateway":"10.100.0.1","ip-range":"10.100.0.10-10.102.255.250","netmask":"255.255.255.0"},"ip-address":"10.100.0.1/24"} 
+ </msg>
+<msg timestamp="20230331 16:52:07.770" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230331 16:52:07.402" endtime="20230331 16:52:07.770"/>
+</kw>
+<status status="PASS" starttime="20230331 16:52:07.401" endtime="20230331 16:52:07.771"/>
+</test>
+<test id="s1-t3" name="Negative Test case for corp" line="14">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://moc-noc-api.deta.dev/moc-noc/v1/network/corp2</arg>
+<arg>params=query=ciao</arg>
+<arg>expected_status=500</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230331 16:52:08.068" level="INFO">GET Request : url=https://moc-noc-api.deta.dev/moc-noc/v1/network/corp2?query=ciao 
+ path_url=/moc-noc/v1/network/corp2?query=ciao 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230331 16:52:08.068" level="INFO">GET Response : url=https://moc-noc-api.deta.dev/moc-noc/v1/network/corp2?query=ciao 
+ status=500, reason=Internal Server Error 
+ headers={'Date': 'Fri, 31 Mar 2023 23:52:09 GMT', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '21', 'Connection': 'keep-alive', 'Server': 'Deta'} 
+ body=Internal Server Error 
+ </msg>
+<msg timestamp="20230331 16:52:08.068" level="INFO">${response} = &lt;Response [500]&gt;</msg>
+<status status="PASS" starttime="20230331 16:52:07.772" endtime="20230331 16:52:08.068"/>
+</kw>
+<status status="PASS" starttime="20230331 16:52:07.771" endtime="20230331 16:52:08.069"/>
+</test>
+<test id="s1-t4" name="Positive Test case for quest" line="18">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://moc-noc-api.deta.dev/moc-noc/v1/network/guest</arg>
+<arg>params=query=ciao</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230331 16:52:08.367" level="INFO">GET Request : url=https://moc-noc-api.deta.dev/moc-noc/v1/network/guest?query=ciao 
+ path_url=/moc-noc/v1/network/guest?query=ciao 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230331 16:52:08.368" level="INFO">GET Response : url=https://moc-noc-api.deta.dev/moc-noc/v1/network/guest?query=ciao 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 31 Mar 2023 23:52:09 GMT', 'Content-Type': 'application/json', 'Content-Length': '126', 'Connection': 'keep-alive', 'Server': 'Deta'} 
+ body={"dhcp":{"gateway":"172.16.0.1","ip-range":"172.16.0.10-172.16.0.250","netmask":"255.255.255.0"},"ip-address":"172.16.0.1/24"} 
+ </msg>
+<msg timestamp="20230331 16:52:08.368" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230331 16:52:08.070" endtime="20230331 16:52:08.368"/>
+</kw>
+<status status="PASS" starttime="20230331 16:52:08.069" endtime="20230331 16:52:08.368"/>
+</test>
+<test id="s1-t5" name="Negative Test case for guest" line="21">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://moc-noc-api.deta.dev/moc-noc/v1/network/guest2</arg>
+<arg>params=query=ciao</arg>
+<arg>expected_status=500</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230331 16:52:08.671" level="INFO">GET Request : url=https://moc-noc-api.deta.dev/moc-noc/v1/network/guest2?query=ciao 
+ path_url=/moc-noc/v1/network/guest2?query=ciao 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230331 16:52:08.672" level="INFO">GET Response : url=https://moc-noc-api.deta.dev/moc-noc/v1/network/guest2?query=ciao 
+ status=500, reason=Internal Server Error 
+ headers={'Date': 'Fri, 31 Mar 2023 23:52:10 GMT', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '21', 'Connection': 'keep-alive', 'Server': 'Deta'} 
+ body=Internal Server Error 
+ </msg>
+<msg timestamp="20230331 16:52:08.672" level="INFO">${response} = &lt;Response [500]&gt;</msg>
+<status status="PASS" starttime="20230331 16:52:08.370" endtime="20230331 16:52:08.672"/>
+</kw>
+<status status="PASS" starttime="20230331 16:52:08.369" endtime="20230331 16:52:08.672"/>
+</test>
+<doc>Test cases for validating API test</doc>
+<status status="PASS" starttime="20230331 16:52:05.453" endtime="20230331 16:52:08.673"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="APItestCases">APItestCases</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
